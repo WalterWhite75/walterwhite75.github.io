@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mevlut Cakin — AI-assisted Data Strategist</title>
+  <meta name="description" content="Portfolio professionnel de Mevlut Cakin — Data Strategist spécialisé en IA, data storytelling et visualisation. Découvrez mes projets, compétences et parcours.">
+  <link rel="icon" type="image/png" href="assets/photo_mevlut.png">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <style>
     .profile-photo {
       width: 150px;
@@ -15,6 +17,104 @@
       display: block;
       margin: 0 auto 20px;
       border: 3px solid #1A5276;
+    }
+    header {
+      background: linear-gradient(135deg, #1A5276, #1ABC9C);
+      color: white;
+      text-align: center;
+      padding: 100px 20px 80px;
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    header h2 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+    header p {
+      max-width: 700px;
+      margin: 20px auto 30px;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    .btn {
+      background-color: white;
+      color: #1A5276;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #E8F6F3;
+      color: #117A65;
+    }
+    #about {
+      background-color: #F9F9F9;
+      padding: 60px 20px;
+    }
+    #about h2 {
+      font-family: 'Poppins', sans-serif;
+    }
+    #about p {
+      font-size: 1.09rem;
+      max-width: 800px;
+      margin: 0 auto 18px;
+      line-height: 1.65;
+    }
+    #skills {
+      background: linear-gradient(180deg, #FDFEFE, #F7F9F9);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    #skills h2, #skills h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    ul li::before {
+      content: "•";
+      color: #1ABC9C;
+      margin-right: 8px;
+    }
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .project-card h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    #contact {
+      text-align: center;
+      background-color: #F3F6F6;
+      padding: 70px 20px;
+    }
+    #contact h2 {
+      color: #1A5276;
+      margin-bottom: 25px;
+    }
+    #contact a {
+      color: #1A5276;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #1A5276;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    footer p {
+      margin: 0;
     }
   </style>
 </head>
@@ -28,18 +128,11 @@
     <a href="#projects" class="btn">Découvrir mes projets</a>
   </header>
 
-  <section id="about">
+  <section id="about" style="background-color:#F9F9F9;padding:60px 20px;">
     <h2>À propos</h2>
-    <p>
-      Étudiant en Master 2 Big Data & Business Intelligence (BIDABI) à l’Université Sorbonne Paris-Nord, 
-      je m’oriente vers la gouvernance et la stratégie des données. 
-      Je vois l’IA non pas comme une menace mais comme un levier d’efficacité un assistant technique 
-      au service de la pensée analytique et du storytelling.
-    </p>
-    <p>
-      Mon objectif : devenir un acteur clé de la transformation data dans les organisations, 
-      et préparer un futur projet CIFRE autour de la qualité, la traçabilité et l’éthique des données.
-    </p>
+    <p><strong>Data Strategist passionné</strong>, je transforme la donnée en levier d’impact stratégique. Étudiant en Master 2 Big Data & Business Intelligence (BIDABI) à l’Université Sorbonne Paris-Nord, je m’oriente vers la gouvernance, la visualisation et la valorisation des données. 
+    L’IA est pour moi un outil d’intelligence augmentée, au service de l’humain et de la créativité analytique.</p>
+    <p>Mon ambition : contribuer à des projets où la donnée inspire, éclaire et transforme les organisations, tout en préparant un futur projet CIFRE autour de la qualité, la traçabilité et l’éthique des données.</p>
   </section>
 
   <section id="skills">
