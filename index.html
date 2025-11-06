@@ -116,27 +116,67 @@
     footer p {
       margin: 0;
     }
+    :root { --primary:#1A5276; --accent:#1ABC9C; --text:#2C3E50; --bg:#F9FAFB; --card:#FFFFFF; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .topnav { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid rgba(0,0,0,.06); }
+    .topnav .container { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .topnav a { text-decoration:none; color: var(--text); font-weight:600; }
+    .topnav .brand { font-family:'Poppins',sans-serif; color: var(--primary); }
+    .topnav .nav-links a { margin-left:18px; opacity: .85; }
+    .topnav .nav-links a:hover { opacity:1; color: var(--primary); }
+    header { padding: 120px 0 90px; background: radial-gradient(1200px 600px at 50% -10%, rgba(26,82,118,.25), transparent 60%), linear-gradient(135deg, var(--primary), var(--accent)); }
+    section { padding: 72px 0; }
+    h2.section-title { text-align:center; font-family:'Poppins',sans-serif; font-size:2rem; margin:0 0 36px; position:relative; }
+    h2.section-title::after { content:''; width:72px; height:4px; background:var(--accent); display:block; margin:12px auto 0; border-radius:4px; }
+    .projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:28px; }
+    .project-card { background: var(--card); border:1px solid rgba(0,0,0,.06); border-radius:14px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    .project-card img { width:100%; height:190px; object-fit:cover; display:block; }
+    .project-card .card-body { padding:18px 18px 20px; }
+    .project-card .tags { list-style:none; padding:0; margin:12px 0 0; display:flex; gap:8px; flex-wrap:wrap; }
+    .project-card .tags li { font-size:.85rem; padding:6px 10px; background:#F0F7F6; border:1px solid #D5EFEA; border-radius:999px; }
+    #about { background:#F9F9F9; }
+    #contact { background:#F3F6F6; }
+    @media (max-width: 768px) { .topnav .nav-links { display:none; } }
   </style>
 </head>
 <body>
 
+  <nav class="topnav">
+    <div class="container">
+      <a href="#" class="brand">Mevlut Cakin</a>
+      <div class="nav-links">
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <header>
+    <div class="container">
     <img src="assets/photo_mevlut.png" alt="Photo de Mevlut Cakin" class="profile-photo">
     <h1>Mevlut Cakin</h1>
     <h2>AI-assisted Data Strategist & Future CIFRE Researcher</h2>
-    <p>Je conçois, pilote et interprète des projets data en m’appuyant sur l’IA comme copilote, pour créer de la valeur et du sens à partir des données.</p>
+    <p>Je transforme les données en décisions mesurables. L’IA est mon partenaire d’analyse pour livrer des résultats rapides, fiables et actionnables.</p>
     <a href="#projects" class="btn">Découvrir mes projets</a>
+    </div>
   </header>
 
-  <section id="about" style="background-color:#F9F9F9;padding:60px 20px;">
-    <h2>À propos</h2>
+  <section id="about">
+    <div class="container">
+    <h2 class="section-title">À propos</h2>
     <p><strong>Data Strategist passionné</strong>, je transforme la donnée en levier d’impact stratégique. Étudiant en Master 2 Big Data & Business Intelligence (BIDABI) à l’Université Sorbonne Paris-Nord, je m’oriente vers la gouvernance, la visualisation et la valorisation des données. 
     L’IA est pour moi un outil d’intelligence augmentée, au service de l’humain et de la créativité analytique.</p>
     <p>Mon ambition : contribuer à des projets où la donnée inspire, éclaire et transforme les organisations, tout en préparant un futur projet CIFRE autour de la qualité, la traçabilité et l’éthique des données.</p>
+    </div>
   </section>
 
   <section id="skills">
-    <h2>Compétences</h2>
+    <div class="container">
+    <h2 class="section-title">Compétences</h2>
     <div class="skills-grid">
       <div>
         <h3>Techniques</h3>
@@ -159,51 +199,67 @@
         </ul>
       </div>
     </div>
+    </div>
   </section>
 
   <section id="projects">
-    <h2>Projets</h2>
+    <div class="container">
+    <h2 class="section-title">Projets</h2>
     <div class="projects-grid">
       <div class="project-card">
         <img src="assets/pagerank.png" alt="Football PageRank Dashboard">
+        <div class="card-body">
         <h3>Football PageRank Dashboard</h3>
         <p>Analyse de l’influence structurelle des clubs européens (2008–2016) via l’algorithme PageRank. 
         Dashboard interactif développé avec Dash & Plotly.</p>
-        <a href="https://github.com/WalterWhite75/football-pagerank" target="_blank">→ Voir sur GitHub</a>
+        <ul class="tags"><li>Python</li><li>NetworkX</li><li>Dash</li></ul>
+        <a href="https://github.com/WalterWhite75/football-pagerank" target="_blank">Voir sur GitHub</a>
+        </div>
       </div>
 
       <div class="project-card">
         <img src="assets/co2.png" alt="CO2 Dashboard">
+        <div class="card-body">
         <h3>CO₂ Dashboard</h3>
         <p>Tableau de bord interactif sur l’évolution des émissions mondiales de CO₂ et les politiques énergétiques par pays.</p>
-        <a href="#">→ Démo à venir</a>
+        <ul class="tags"><li>Python</li><li>Plotly</li><li>Open Data</li></ul>
+        <a href="#">Démo à venir</a>
+        </div>
       </div>
 
       <div class="project-card">
         <img src="assets/velib.png" alt="Velib Dashboard">
+        <div class="card-body">
         <h3>Vélib Data Pipeline</h3>
         <p>Pipeline ETL complet pour analyser les flux et disponibilités des stations Vélib à Paris, 
         avec visualisation en temps réel.</p>
-        <a href="#">→ Démo à venir</a>
+        <ul class="tags"><li>Dash</li><li>ETL</li><li>API</li></ul>
+        <a href="#">Démo à venir</a>
+        </div>
       </div>
 
       <div class="project-card">
         <img src="assets/arbres.png" alt="Arbres de Paris Dashboard">
+        <div class="card-body">
         <h3>Projet Arbres de Paris</h3>
         <p>
           Étude des arbres de la Ville de Paris à partir des données OpenData : nettoyage, catégorisation par essence et arrondissement,
           visualisation des répartitions et densités. Pipeline Python + Dash pour la mise à jour automatisée.
         </p>
-        <a href="https://github.com/WalterWhite75/paris-arbres-etl" target="_blank">→ Voir sur GitHub</a>
+        <ul class="tags"><li>Python</li><li>Dash</li><li>Open Data</li></ul>
+        <a href="https://github.com/WalterWhite75/paris-arbres-etl" target="_blank">Voir sur GitHub</a>
+        </div>
       </div>
+    </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
+    <div class="container">
+    <h2 class="section-title">Contact</h2>
     <p><a href="mailto:mevlutcakin93@gmail.com">mevlutcakin93@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/mevlut-cakin" target="_blank">LinkedIn</a> — 
-       <a href="https://github.com/WalterWhite75" target="_blank">GitHub</a></p>
+    <p><a href="https://www.linkedin.com/in/mevlut-cakin" target="_blank">LinkedIn</a> | <a href="https://github.com/WalterWhite75" target="_blank">GitHub</a></p>
+    </div>
   </section>
 
   <footer>
