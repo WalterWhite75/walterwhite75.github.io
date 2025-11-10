@@ -157,7 +157,7 @@
 
   <header>
     <div class="container">
-    <img src="assets/photo_mevlut.png" alt="Photo de Mevlut Cakin" class="profile-photo">
+    <img id="img-pagerank" src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy" onerror="window.__swapPagerank && window.__swapPagerank(this)">
     <h1>Mevlut Cakin</h1>
     <h2>AI-assisted Data Strategist & Future CIFRE Researcher</h2>
     <p>Je transforme les données en décisions mesurables. L’IA est mon partenaire d’analyse pour livrer des résultats rapides, fiables et actionnables.</p>
@@ -212,7 +212,7 @@
     <h2 class="section-title">Projets</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img id="img-pagerank" src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy">
+        <img id="img-pagerank" src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy" onerror="window.__swapPagerank && window.__swapPagerank(this)">
         <div class="card-body">
         <h3>Football PageRank Dashboard</h3>
         <p>Analyse de l’influence structurelle des clubs européens (2008–2016) via l’algorithme PageRank. 
@@ -294,7 +294,8 @@
 (function(){
   const img = document.getElementById('img-pagerank');
   if (!img) return;
-  const candidates = [
+
+  const sources = [
     'assets/pagerank.png?v=20251110',
     'assets/pagerank.png',
     'assets/pagerank.PNG',
@@ -305,14 +306,28 @@
     '/assets/pagerank.PNG',
     'pagerank.png'
   ];
-  let i = 1; // start from next candidate since initial src is index 0
-  img.onerror = function () {
-    if (i < candidates.length) {
-      img.src = candidates[i++];
+
+  let idx = 0; // current index in sources
+
+  // Expose a safe global fallback to be usable from inline onerror
+  window.__swapPagerank = function(el){
+    idx++;
+    if (idx < sources.length) {
+      el.src = sources[idx];
     } else {
-      img.onerror = null;
+      el.onerror = null; // stop trying
     }
   };
+
+  // Attach handler (covers subsequent errors)
+  img.onerror = function(){ window.__swapPagerank(img); };
+
+  // If the first load already failed before handler attached, kick off a retry shortly
+  setTimeout(function(){
+    if (!img.complete || img.naturalWidth === 0) {
+      window.__swapPagerank(img);
+    }
+  }, 100);
 })();
 </script>
 </html>
