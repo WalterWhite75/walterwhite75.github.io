@@ -157,7 +157,7 @@
 
   <header>
     <div class="container">
-    <img id="img-pagerank" src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy" onerror="window.__swapPagerank && window.__swapPagerank(this)">
+    <img class="pagerank-img" data-pagerank src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy" onerror="window.__swapPagerank && window.__swapPagerank(this)">
     <h1>Mevlut Cakin</h1>
     <h2>AI-assisted Data Strategist & Future CIFRE Researcher</h2>
     <p>Je transforme les données en décisions mesurables. L’IA est mon partenaire d’analyse pour livrer des résultats rapides, fiables et actionnables.</p>
@@ -212,7 +212,7 @@
     <h2 class="section-title">Projets</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img id="img-pagerank" src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy" onerror="window.__swapPagerank && window.__swapPagerank(this)">
+        <img class="pagerank-img" data-pagerank src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy" onerror="window.__swapPagerank && window.__swapPagerank(this)">
         <div class="card-body">
         <h3>Football PageRank Dashboard</h3>
         <p>Analyse de l’influence structurelle des clubs européens (2008–2016) via l’algorithme PageRank. 
@@ -228,7 +228,7 @@
         <h3>CO₂ Dashboard</h3>
         <p>Tableau de bord interactif sur l’évolution des émissions mondiales de CO₂ et les politiques énergétiques par pays.</p>
         <ul class="tags"><li>Python</li><li>Plotly</li><li>Open Data</li></ul>
-        <a href="https://github.com/WalterWhite75" target="_blank">Voir sur GitHub</a>
+        <a href="https://github.com/WalterWhite75/dashboard-co2-project" target="_blank">Voir sur GitHub</a>
         </div>
       </div>
 
@@ -292,10 +292,10 @@
 </body>
 <script>
 (function(){
-  const img = document.getElementById('img-pagerank');
-  if (!img) return;
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('img[data-pagerank]'));
+  if (!imgs.length) return;
 
-  const sources = [
+  var candidates = [
     'assets/pagerank.png?v=20251110',
     'assets/pagerank.png',
     'assets/pagerank.PNG',
@@ -307,27 +307,24 @@
     'pagerank.png'
   ];
 
-  let idx = 0; // current index in sources
-
-  // Expose a safe global fallback to be usable from inline onerror
   window.__swapPagerank = function(el){
-    idx++;
-    if (idx < sources.length) {
-      el.src = sources[idx];
+    var i = parseInt(el.getAttribute('data-src-idx') || '0', 10);
+    i += 1;
+    if (i < candidates.length){
+      el.setAttribute('data-src-idx', String(i));
+      el.src = candidates[i];
     } else {
-      el.onerror = null; // stop trying
+      el.onerror = null;
     }
   };
 
-  // Attach handler (covers subsequent errors)
-  img.onerror = function(){ window.__swapPagerank(img); };
-
-  // If the first load already failed before handler attached, kick off a retry shortly
-  setTimeout(function(){
-    if (!img.complete || img.naturalWidth === 0) {
-      window.__swapPagerank(img);
-    }
-  }, 100);
+  imgs.forEach(function(el){
+    el.setAttribute('data-src-idx', '0');
+    el.onerror = function(){ window.__swapPagerank(el); };
+    setTimeout(function(){
+      if (!el.complete || el.naturalWidth === 0){ window.__swapPagerank(el); }
+    }, 120);
+  });
 })();
 </script>
 </html>
