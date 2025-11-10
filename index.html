@@ -212,7 +212,7 @@
     <h2 class="section-title">Projets</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img id="img-pagerank" src="assets/pagerank.png" alt="Football PageRank Dashboard" loading="lazy">
+        <img id="img-pagerank" src="assets/pagerank.png?v=20251110" alt="Football PageRank Dashboard (screenshot)" loading="lazy">
         <div class="card-body">
         <h3>Football PageRank Dashboard</h3>
         <p>Analyse de l’influence structurelle des clubs européens (2008–2016) via l’algorithme PageRank. 
@@ -295,12 +295,14 @@
   const img = document.getElementById('img-pagerank');
   if (!img) return;
   const candidates = [
+    'assets/pagerank.png?v=20251110',
     'assets/pagerank.png',
     'assets/pagerank.PNG',
     'assets/PageRank.png',
     'assets/pagerank.jpg',
     'assets/pagerank.jpeg',
     '/assets/pagerank.png',
+    '/assets/pagerank.PNG',
     'pagerank.png'
   ];
   let i = 1; // start from next candidate since initial src is index 0
