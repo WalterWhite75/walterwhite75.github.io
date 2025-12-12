@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mevlut Cakin — Data Analyst / Data Consultant (BI, Data Quality)</title>
-  <meta name="description" content="Portfolio de Mevlut Cakin — Data Analyst & Data Consultant (BI, Data Quality, Data Governance). Projets : CO₂ (pilotage ESG), Vélib (pipeline temps réel), Arbres de Paris (audit qualité des données).">
+  <meta name="description" content="Portfolio de Mevlut Cakin — Data Analyst / Data Consultant (BI, Data Quality, Data Governance). Projets phares : Arbres de Paris (audit qualité & référentiel), Vélib (pipeline API & pilotage), CO₂ (dashboard ESG & tendances).">
+  <meta property="og:title" content="Mevlut Cakin — Data Analyst / Data Consultant (BI, Data Quality)" />
+  <meta property="og:description" content="BI, Data Quality & Data Governance — Arbres de Paris, Vélib, CO₂." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://walterwhite75.github.io/" />
+  <meta property="og:image" content="https://walterwhite75.github.io/assets/photo_mevlut.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/photo_mevlut.png">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
@@ -41,17 +47,42 @@
       opacity: 0.95;
     }
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       background-color: white;
       color: #1A5276;
-      padding: 12px 25px;
-      border-radius: 6px;
+      padding: 12px 22px;
+      border-radius: 10px;
       text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-weight: 700;
+      transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 18px rgba(0,0,0,.08);
     }
     .btn:hover {
       background-color: #E8F6F3;
       color: #117A65;
+      transform: translateY(-1px);
+    }
+    .btn:active { transform: translateY(0px); }
+    .btn.secondary {
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: none;
+    }
+    .btn.secondary:hover {
+      background: rgba(255,255,255,.28);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
     }
     #about {
       background-color: #F9F9F9;
@@ -138,14 +169,58 @@
     .project-card .tags li { font-size:.85rem; padding:6px 10px; background:#F0F7F6; border:1px solid #D5EFEA; border-radius:999px; }
     #about { background:#F9F9F9; }
     #contact { background:#F3F6F6; }
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1.05rem;
+      opacity: .95;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .highlights {
+      list-style: none;
+      padding: 0;
+      margin: 18px auto 0;
+      max-width: 860px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .highlights li {
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: rgba(255,255,255,.95);
+      line-height: 1.45;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    .project-card a {
+      display: inline-flex;
+      margin-top: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .project-card a:hover { text-decoration: underline; }
     @media (max-width: 768px) { .topnav .nav-links { display:none; } }
   </style>
 </head>
-<body>
+<body id="top">
 
   <nav class="topnav">
     <div class="container">
-      <a href="#" class="brand">Mevlut Cakin</a>
+      <a href="#top" class="brand">Mevlut Cakin</a>
       <div class="nav-links">
         <a href="#about">À propos</a>
         <a href="#skills">Compétences</a>
@@ -160,16 +235,28 @@
     <img class="profile-photo" src="assets/photo_mevlut.jpg" alt="Photo de profil — Mevlut Cakin" loading="lazy" onerror="this.onerror=null; this.src='assets/photo_mevlut.png';">
     <h1>Mevlut Cakin</h1>
     <h2>Data Analyst / Data Consultant — BI • Data Quality • Data Governance</h2>
-    <p>Je transforme des données hétérogènes en décisions actionnables : fiabilisation (data quality), modélisation, automatisation (ETL) et tableaux de bord orientés KPI.</p>
-    <a href="#projects" class="btn">Voir mes 3 projets clés</a>
+    <p class="subtitle">Je transforme des données hétérogènes en décisions actionnables : <strong>audit & fiabilisation</strong>, <strong>modélisation</strong>, <strong>ETL</strong> et <strong>tableaux de bord KPI</strong>.</p>
+
+    <div class="btn-row">
+      <a href="#projects" class="btn">Voir mes 3 projets clés</a>
+      <a href="https://www.linkedin.com/in/mevlut-cakin" class="btn secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/WalterWhite75" class="btn secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+
+    <ul class="highlights">
+      <li><strong>Data Quality</strong> : règles, contrôles, détection d’incohérences, suivi.</li>
+      <li><strong>BI</strong> : KPI design, storytelling, restitution orientée décision.</li>
+      <li><strong>Pipeline</strong> : ingestion API, normalisation, stockage, monitoring basique.</li>
+    </ul>
     </div>
   </header>
 
   <section id="about">
     <div class="container">
     <h2 class="section-title">À propos</h2>
-    <p><strong>Data Analyst / Data Consultant</strong>, je conçois des solutions data orientées décision : audit & qualité des données, modélisation, ETL et visualisation BI.</p>
-    <p>Je recherche un stage où je peux contribuer rapidement sur des sujets de <strong>BI</strong>, <strong>data quality</strong> et <strong>gouvernance</strong>, au contact du métier et avec un niveau d’exigence production.</p>
+    <p><strong>Data Analyst / Data Consultant</strong>, j’interviens sur la chaîne complète : cadrage métier → fiabilisation des données → modélisation → restitution KPI.</p>
+    <p>Mon objectif : livrer des résultats <strong>propres</strong>, <strong>documentés</strong> et <strong>réutilisables</strong> (code clair, README, métriques de qualité, limites explicites).</p>
+    <p>Je recherche un <strong>stage</strong> où je peux contribuer rapidement sur des sujets de <strong>BI</strong>, <strong>data quality</strong> et <strong>gouvernance</strong>, avec une exigence proche production.</p>
     </div>
   </section>
 
@@ -180,8 +267,9 @@
       <div>
         <h3>Outils informatiques</h3>
         <ul>
-          <li>Python (Pandas, NumPy, Plotly, Dash, scikit-learn)</li>
-          <li>Machine Learning (modèles supervisés & non supervisés, scikit-learn)</li>
+          <li>Python (Pandas, NumPy) • Data quality checks • ETL</li>
+          <li>Visualisation (Plotly, Dash) • reporting orienté KPI</li>
+          <li>Notions ML (scikit-learn) — usage ciblé (segmentation, baseline)</li>
           <li>IA générative (ChatGPT, OpenAI API) — usage orienté productivité</li>
           <li>R (tidyverse, dplyr, ggplot2, bases Shiny)</li>
           <li>SQL (SQLite, MySQL, PostgreSQL)</li>
@@ -220,7 +308,7 @@
           Audit et fiabilisation d’un référentiel open data (doublons, valeurs manquantes, cohérence), puis restitution par arrondissement/essence. Pipeline Python + dashboard pour suivi et mise à jour.
         </p>
         <ul class="tags"><li>Python</li><li>Data Quality</li><li>Dash</li></ul>
-        <a href="https://github.com/WalterWhite75/arbres-paris-dashboard-" target="_blank">Voir sur GitHub</a>
+        <a href="https://github.com/WalterWhite75/arbres-paris-dashboard-" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
 
@@ -230,7 +318,7 @@
         <h3>Vélib — Pipeline temps réel & pilotage</h3>
         <p>Ingestion API, normalisation et stockage pour analyser la disponibilité des stations. Tableau de bord orienté KPI (tension, disponibilité, zones critiques) pour support opérationnel.</p>
         <ul class="tags"><li>ETL</li><li>API</li><li>Dash</li></ul>
-        <a href="https://github.com/WalterWhite75/velib-data-pipeline" target="_blank">Voir sur GitHub</a>
+        <a href="https://github.com/WalterWhite75/velib-data-pipeline" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
 
@@ -240,7 +328,7 @@
         <h3>CO₂ — Tableau de bord ESG & comparaisons pays</h3>
         <p>Tableau de bord interactif pour comparer les émissions et tendances par pays/année. Mise en avant d’indicateurs clés et d’angles d’analyse utiles au pilotage ESG.</p>
         <ul class="tags"><li>Python</li><li>Plotly</li><li>BI</li></ul>
-        <a href="https://github.com/WalterWhite75/dashboard-co2-project" target="_blank">Voir sur GitHub</a>
+        <a href="https://github.com/WalterWhite75/dashboard-co2-project" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
     </div>
@@ -252,9 +340,9 @@
 
   <section id="contact">
     <div class="container">
-    <h2 class="section-title">Contactez moi</h2>
+    <h2 class="section-title">Contactez-moi</h2>
     <p><a href="mailto:mevlutcakin93@gmail.com">mevlutcakin93@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/mevlut-cakin" target="_blank">LinkedIn</a> | <a href="https://github.com/WalterWhite75" target="_blank">GitHub</a></p>
+    <p><a href="https://www.linkedin.com/in/mevlut-cakin" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://github.com/WalterWhite75" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </div>
   </section>
 
