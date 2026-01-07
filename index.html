@@ -178,6 +178,16 @@
       object-fit: cover;
       display: block;
     }
+    .bp-cover {
+      padding: 14px 14px 6px;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .bp-cover .screens-grid { margin-top: 0; }
+    .bp-cover .screens-grid img { height: 190px; }
+    @media (max-width: 700px) {
+      .bp-cover .screens-grid img { height: 200px; }
+    }
     details.proj-details {
       margin-top: 14px;
       padding: 12px 14px;
@@ -372,9 +382,16 @@
     <h2 class="section-title">Projets</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <a class="cover-link" href="assets/bp-monitoring.png" target="_blank" rel="noopener noreferrer">
-          <img class="cover" src="assets/bp-monitoring.png" alt="BP Monitoring - Docker & Elastic">
-        </a>
+        <div class="bp-cover">
+          <div class="screens-grid">
+            <a href="assets/Dashboard1.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/Dashboard1.png" alt="Elastic Dashboard — vue globale">
+            </a>
+            <a href="assets/Dashboard2.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/Dashboard2.png" alt="Elastic Dashboard — vue détaillée">
+            </a>
+          </div>
+        </div>
         <div class="card-body">
           <h3>BP Monitoring — Docker & supervision applicative</h3>
           <p>
@@ -385,16 +402,6 @@
 
           <details class="proj-details">
             <summary>Détail du projet</summary>
-
-            <div class="screens-grid">
-              <a href="assets/Dashboard1.png" target="_blank" rel="noopener noreferrer">
-                <img src="assets/Dashboard1.png" alt="Elastic Dashboard — vue globale">
-              </a>
-              <a href="assets/Dashboard2.png" target="_blank" rel="noopener noreferrer">
-                <img src="assets/Dashboard2.png" alt="Elastic Dashboard — vue détaillée">
-              </a>
-            </div>
-            <p class="screens-note">Captures Elastic/Kibana (cliquez pour agrandir).</p>
 
             <ul>
               <li><strong>Secteur / contexte :</strong> observabilité applicative & monitoring (approche proche production).</li>
