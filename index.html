@@ -163,7 +163,32 @@
     h2.section-title::after { content:''; width:72px; height:4px; background:var(--accent); display:block; margin:12px auto 0; border-radius:4px; }
     .projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:28px; }
     .project-card { background: var(--card); border:1px solid rgba(0,0,0,.06); border-radius:14px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.06); }
-    .project-card > img { width:100%; height:190px; object-fit:cover; display:block; }
+    .project-card .cover-link { display:block; }
+    .project-card .cover {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+    details.proj-details {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 12px;
+      background: #fff;
+    }
+    details.proj-details summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--primary);
+      list-style: none;
+    }
+    details.proj-details summary::-webkit-details-marker { display:none; }
+    details.proj-details ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    details.proj-details li { margin: 6px 0; }
     .screens-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -339,14 +364,11 @@
     <h2 class="section-title">Projets</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="assets/bp-monitoring.png" alt="BP Monitoring - Docker & Elastic">
+        <a class="cover-link" href="assets/bp-monitoring.png" target="_blank" rel="noopener noreferrer">
+          <img class="cover" src="assets/bp-monitoring.png" alt="BP Monitoring - Docker & Elastic">
+        </a>
         <div class="card-body">
           <h3>BP Monitoring — Docker & supervision applicative</h3>
-          <p>
-            Pipeline de monitoring orienté production : ingestion de données,
-            détection d’anomalies et visualisation temps réel via Elastic.
-            Projet conçu pour démontrer la maîtrise de Docker et des environnements reproductibles.
-          </p>
           <div class="screens-grid">
             <a href="assets/Dashboard1.png" target="_blank" rel="noopener noreferrer">
               <img src="assets/Dashboard1.png" alt="Elastic Dashboard — vue globale">
@@ -356,37 +378,84 @@
             </a>
           </div>
           <p class="screens-note">Captures Elastic/Kibana (cliquez pour agrandir).</p>
+          <p>
+            Pipeline de monitoring orienté production : ingestion de données,
+            détection d’anomalies et visualisation temps réel via Elastic.
+            Projet conçu pour démontrer la maîtrise de Docker et des environnements reproductibles.
+          </p>
+          <details class="proj-details">
+            <summary>Détail du projet</summary>
+            <ul>
+              <li><strong>Secteur / contexte :</strong> observabilité applicative & monitoring (approche proche production).</li>
+              <li><strong>Objectif :</strong> suivre la santé du système, détecter des anomalies et faciliter l’analyse via dashboards.</li>
+              <li><strong>Approche :</strong> stack Docker/Docker Compose, ingestion, indexation, visualisation et suivi.</li>
+              <li><strong>Livrables :</strong> dashboards Kibana + documentation de déploiement.</li>
+            </ul>
+          </details>
           <ul class="tags"><li>Docker</li><li>Elastic</li><li>Monitoring</li></ul>
           <a href="https://github.com/WalterWhite75/bp-monitoring" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
       <div class="project-card">
-        <img src="assets/arbres.png" alt="Arbres de Paris Dashboard">
+        <a class="cover-link" href="assets/arbres.png" target="_blank" rel="noopener noreferrer">
+          <img class="cover" src="assets/arbres.png" alt="Arbres de Paris Dashboard">
+        </a>
         <div class="card-body">
         <h3>Arbres de Paris — Audit qualité & référentiel</h3>
         <p>
           Audit et fiabilisation d’un référentiel open data (doublons, valeurs manquantes, cohérence), puis restitution par arrondissement/essence. Pipeline Python + dashboard pour suivi et mise à jour.
         </p>
+        <details class="proj-details">
+          <summary>Détail du projet</summary>
+          <ul>
+            <li><strong>Secteur / contexte :</strong> urbanisme & environnement (référentiel open data).</li>
+            <li><strong>Objectif :</strong> auditer/fiabiliser le référentiel (doublons, manquants, cohérence) puis piloter par KPI.</li>
+            <li><strong>Approche :</strong> contrôles qualité, normalisation, règles métiers, dashboard de suivi.</li>
+            <li><strong>Livrables :</strong> rapport de qualité + dashboard par arrondissement/essence.</li>
+          </ul>
+        </details>
         <ul class="tags"><li>Python</li><li>Data Quality</li><li>Dash</li></ul>
         <a href="https://github.com/WalterWhite75/arbres-paris-dashboard" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
-        <img src="assets/velib.png" alt="Velib Dashboard">
+        <a class="cover-link" href="assets/velib.png" target="_blank" rel="noopener noreferrer">
+          <img class="cover" src="assets/velib.png" alt="Velib Dashboard">
+        </a>
         <div class="card-body">
         <h3>Vélib — Pipeline temps réel & pilotage</h3>
         <p>Ingestion API, normalisation et stockage pour analyser la disponibilité des stations. Tableau de bord orienté KPI (tension, disponibilité, zones critiques) pour support opérationnel.</p>
+        <details class="proj-details">
+          <summary>Détail du projet</summary>
+          <ul>
+            <li><strong>Secteur / contexte :</strong> mobilité urbaine (données temps réel).</li>
+            <li><strong>Objectif :</strong> mesurer la tension/déficit de vélos et identifier les zones critiques.</li>
+            <li><strong>Approche :</strong> ingestion API, nettoyage/normalisation, stockage, indicateurs KPI, dashboard.</li>
+            <li><strong>Livrables :</strong> pipeline + tableaux de bord d’aide au pilotage.</li>
+          </ul>
+        </details>
         <ul class="tags"><li>ETL</li><li>API</li><li>Dash</li></ul>
         <a href="https://github.com/WalterWhite75/velib-data-pipeline" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
-        <img src="assets/co2.png" alt="CO2 Dashboard">
+        <a class="cover-link" href="assets/co2.png" target="_blank" rel="noopener noreferrer">
+          <img class="cover" src="assets/co2.png" alt="CO2 Dashboard">
+        </a>
         <div class="card-body">
         <h3>CO₂ — Tableau de bord ESG & comparaisons pays</h3>
         <p>Tableau de bord interactif pour comparer les émissions et tendances par pays/année. Mise en avant d’indicateurs clés et d’angles d’analyse utiles au pilotage ESG.</p>
+        <details class="proj-details">
+          <summary>Détail du projet</summary>
+          <ul>
+            <li><strong>Secteur / contexte :</strong> ESG / climat (comparaisons pays & tendances).</li>
+            <li><strong>Objectif :</strong> comparer les trajectoires, repérer ruptures/tendances et angles d’analyse.</li>
+            <li><strong>Approche :</strong> préparation des données, indicateurs, visualisations interactives.</li>
+            <li><strong>Livrables :</strong> dashboard + lecture “décisionnelle” des résultats.</li>
+          </ul>
+        </details>
         <ul class="tags"><li>Python</li><li>Plotly</li><li>BI</li></ul>
         <a href="https://github.com/WalterWhite75/dashboard-co2-project" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
