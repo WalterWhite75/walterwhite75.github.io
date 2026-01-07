@@ -163,7 +163,35 @@
     h2.section-title::after { content:''; width:72px; height:4px; background:var(--accent); display:block; margin:12px auto 0; border-radius:4px; }
     .projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:28px; }
     .project-card { background: var(--card); border:1px solid rgba(0,0,0,.06); border-radius:14px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.06); }
-    .project-card img { width:100%; height:190px; object-fit:cover; display:block; }
+    .project-card > img { width:100%; height:190px; object-fit:cover; display:block; }
+    .screens-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .screens-grid a {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    }
+    .screens-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .screens-note {
+      margin: 10px 0 0;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    @media (max-width: 700px) {
+      .screens-grid { grid-template-columns: 1fr; }
+      .screens-grid img { height: 200px; }
+    }
     .project-card .card-body { padding:18px 18px 20px; }
     .project-card .tags { list-style:none; padding:0; margin:12px 0 0; display:flex; gap:8px; flex-wrap:wrap; }
     .project-card .tags li { font-size:.85rem; padding:6px 10px; background:#F0F7F6; border:1px solid #D5EFEA; border-radius:999px; }
@@ -281,6 +309,10 @@
           <li>Git & GitHub</li>
           <li>Jira (suivi de tickets, backlog, collaboration projet)</li>
           <li>Docker (environnements reproductibles)</li>
+          <li>Kafka (streaming, ingestion temps réel)</li>
+          <li>Elastic Stack (Elasticsearch, Kibana) — dashboards & observabilité</li>
+          <li>Docker Compose (stack locale reproductible)</li>
+          <li>Linux & ligne de commande (bash, scripts)</li>
           <li>Apache Spark (notions, traitement distribué)</li>
           <li>APIs REST/JSON (requests)</li>
           <li>Power BI (DAX, modélisation) • Tableau</li>
@@ -315,8 +347,15 @@
             détection d’anomalies et visualisation temps réel via Elastic.
             Projet conçu pour démontrer la maîtrise de Docker et des environnements reproductibles.
           </p>
-          <img src="assets/Dashboard1.png" alt="Elastic Dashboard - vue globale" style="margin-top:12px;border-radius:10px;">
-          <img src="assets/Dashboard2.png" alt="Elastic Dashboard - vue détaillée" style="margin-top:12px;border-radius:10px;">
+          <div class="screens-grid">
+            <a href="assets/Dashboard1.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/Dashboard1.png" alt="Elastic Dashboard — vue globale">
+            </a>
+            <a href="assets/Dashboard2.png" target="_blank" rel="noopener noreferrer">
+              <img src="assets/Dashboard2.png" alt="Elastic Dashboard — vue détaillée">
+            </a>
+          </div>
+          <p class="screens-note">Captures Elastic/Kibana (cliquez pour agrandir).</p>
           <ul class="tags"><li>Docker</li><li>Elastic</li><li>Monitoring</li></ul>
           <a href="https://github.com/WalterWhite75/bp-monitoring" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
@@ -329,7 +368,7 @@
           Audit et fiabilisation d’un référentiel open data (doublons, valeurs manquantes, cohérence), puis restitution par arrondissement/essence. Pipeline Python + dashboard pour suivi et mise à jour.
         </p>
         <ul class="tags"><li>Python</li><li>Data Quality</li><li>Dash</li></ul>
-        <a href="https://github.com/WalterWhite75/arbres-paris-dashboard-" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
+        <a href="https://github.com/WalterWhite75/arbres-paris-dashboard" target="_blank" rel="noopener noreferrer">Voir sur GitHub</a>
         </div>
       </div>
 
@@ -368,7 +407,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Mevlut (Mehmet) Cakin | Data Analyst / Data Consultant</p>
+    <p>© 2025 David (Mevlut) Cakin | Data Analyst / Data Consultant</p>
   </footer>
 
 </body>
